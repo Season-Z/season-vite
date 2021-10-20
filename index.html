@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="public/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      // hash: 规避 shared 文件内的环境判断
+      window.process = {
+        env: {
+          NODE_ENV: "development",
+        },
+      };
+
+      function updateStyle(content) {
+        let style = document.createElement("style");
+        style.setAttribute("type", "text/css");
+        style.innerHTML = content;
+        document.head.appendChild(style);
+      }
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
